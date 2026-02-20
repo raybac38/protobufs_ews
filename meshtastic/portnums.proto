@@ -254,6 +254,11 @@ enum PortNum {
   ATAK_FORWARDER = 257;
 
   /*
+   * EWS app
+   */
+  EWS = 384;
+
+  /*
    * Currently we limit port nums to no higher than this value
    */
   MAX = 511;
