@@ -1,0 +1,138 @@
+
+
+syntax = "proto3";
+
+package meshtastic;
+
+
+enum MessageType {
+    TEST = 0;
+    ALERT = 1;
+    UPDATE = 2;
+    ALL_CLEAR = 3;
+}
+
+enum Region {
+    AFGHANISTAN = 0;
+    ALBANIA = 1;
+    ANTARTICA = 2;
+    ZAMBIA = 248;
+}
+
+enum PrivoderIdentifier {
+    DUMMY_1 = 0;
+    DUMMY_32 = 31;
+}
+
+message MessageIdentifier {
+    MessageType messageType = 1;
+    Region region = 2;
+    PrivoderIdentifier providerIdentifier = 3;
+}
+
+enum HazardCategoryAndType {
+    NOT_USED = 0;
+    AIR_STRIKE = 1;
+    ATTACK_ON_IT_SYSTEMS = 2;
+    MARINE_POLLUTION = 18;
+    OTHER = 113;
+}
+
+enum Severity {
+    UNKNOWN = 0;
+    MODERATE = 1;
+    SEVERE = 2;
+    EXTREME = 3;
+}
+
+message Hazard {
+    HazardCategoryAndType hazardCategoryAndType = 1;
+    Severity severity = 2;
+}
+
+enum WeekNumber {
+    CURRENT_WEEK = 0;
+    NEXT_WEEK = 1;
+}
+
+enum TimeOfTheWeek {
+    NOT_USED = 0;
+    MONDAY_00_00_AM = 1;
+    MONDAY_00_01_AM = 2;
+    MONDAY_00_02_AM = 3;
+
+    SUNDAY_11_58_PM = 10079;
+    SUNDAY_11_59_PM = 10080;
+}
+
+enum Duration {
+    UNKNOWN = 0;
+    LESS_THAN_6H = 1;
+    MORE_THAN_6H_LESS_THAN_12H = 2;
+    MORE_THAN_12H_LESS_THAN_24H = 3;
+}
+
+message HazardChronology {
+    WeekNumber weekNumber = 1;
+    TimeOfTheWeek timeOfTheWeek = 2;
+    Duration duration = 3;
+}
+
+enum LibrarySelection {
+    INTERNATIONAL_LIBRARY = 0;
+    REGION_LIBRARY = 1;
+}
+
+enum LibraryVersion {
+    VERSION_1 = 0;
+    VERSION_2 = 1;
+}
+
+enum InstructionsListA {
+    NOT_USED = 0;
+    DANGER_LEAVE = 1;
+    DANGER_EVAC = 2;
+    SHELTER = 3;
+    CONDITION_OK = 31;
+}
+
+enum InstructionsListB {
+    NOT_USED = 0;
+    CHECK_AUTHORITIES = 1;            
+    FIND_INFORMATION_POINTS = 2;      
+    VULNERABLE_STAY_INDOORS = 3;      
+    REPLACE_PREVIOUS_WARNING = 31;    
+}
+
+message GuidanceToReact {
+    LibrarySelection librarySelection = 1;
+    LibraryVersion libraryVersion = 2;
+    InstructionsListA instructionsListA = 3;
+    InstructionsListB instructionsListB = 4;
+}
+
+message TargetArea {
+    uint64 ellipse = 1;
+    /*
+    16 bits => Ellipse center latitude
+    17 bits => Ellipse center longitude
+    05 bits => Ellipse semi-major axis
+    05 bits => Ellipse semi-minor axis
+    06 bits => Ellipse azimuth angle
+    15 bits => not used
+    */
+}
+
+message AdditionalParameters {
+    /*
+        None for today
+    */
+}
+
+message Ews {
+    MessageIdentifier messageIdentifier = 1;
+    Hazard hazard = 2;
+    HazardChronology hazardChronology = 3;
+    GuidanceToReact guidanceToReact = 4;
+    TargetArea targetArea = 5;
+}
