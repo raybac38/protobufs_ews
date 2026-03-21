@@ -39,10 +39,10 @@ enum HazardCategoryAndType {
 }
 
 enum Severity {
-    UNKNOWN = 0;
-    MODERATE = 1;
-    SEVERE = 2;
-    EXTREME = 3;
+    SEVERITY_UNKNOWN = 0;
+    SEVERITY_MODERATE = 1;
+    SEVERITY_SEVERE = 2;
+    SEVERITY_EXTREME = 3;
 }
 
 message Hazard {
@@ -56,7 +56,7 @@ enum WeekNumber {
 }
 
 enum TimeOfTheWeek {
-    NOT_USED = 0;
+    TIME_OF_WEEK_NOT_USED = 0;
     MONDAY_00_00_AM = 1;
     MONDAY_00_01_AM = 2;
     MONDAY_00_02_AM = 3;
@@ -66,7 +66,7 @@ enum TimeOfTheWeek {
 }
 
 enum Duration {
-    UNKNOWN = 0;
+    DURATION_UNKNOWN = 0;
     LESS_THAN_6H = 1;
     MORE_THAN_6H_LESS_THAN_12H = 2;
     MORE_THAN_12H_LESS_THAN_24H = 3;
@@ -89,7 +89,7 @@ enum LibraryVersion {
 }
 
 enum InstructionsListA {
-    NOT_USED = 0;
+    INSTRUCTIONSA_NOT_USED = 0;
     DANGER_LEAVE = 1;
     DANGER_EVAC = 2;
     SHELTER = 3;
@@ -97,7 +97,7 @@ enum InstructionsListA {
 }
 
 enum InstructionsListB {
-    NOT_USED = 0;
+    INSTRUCTIONSB_NOT_USED = 0;
     CHECK_AUTHORITIES = 1;            
     FIND_INFORMATION_POINTS = 2;      
     VULNERABLE_STAY_INDOORS = 3;      
