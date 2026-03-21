@@ -5,7 +5,7 @@ syntax = "proto3";
 package meshtastic;
 
 
-enum MessageType {
+enum EWS_MessageType {
     TEST = 0;
     ALERT = 1;
     UPDATE = 2;
@@ -25,7 +25,7 @@ enum PrivoderIdentifier {
 }
 
 message MessageIdentifier {
-    MessageType messageType = 1;
+    EWS_MessageType messageType = 1;
     Region region = 2;
     PrivoderIdentifier providerIdentifier = 3;
 }
