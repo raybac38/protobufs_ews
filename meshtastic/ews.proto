@@ -112,7 +112,7 @@ message GuidanceToReact {
 }
 
 message TargetArea {
-    uint64 ellipse = 1;
+    fixed64 ellipse = 1;
     /*
     16 bits => Ellipse center latitude
     17 bits => Ellipse center longitude
